@@ -1,5 +1,6 @@
 package cmy.manage.managestart.api;
 
+import cmy.manage.managedal.common.result.BaseResult;
 import cmy.manage.managedal.entity.ExpireManage;
 import cmy.manage.manageservice.service.expireMange.ExpireManageService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +23,7 @@ public class ExpireManageController {
     ExpireManageService expireManageService;
 
     @GetMapping("/list")
-    public List<ExpireManage> getList() {
-        return expireManageService.getList();
+    public BaseResult<List<ExpireManage>> getList() {
+        return BaseResult.success(expireManageService.getList());
     }
 }
